@@ -1,17 +1,14 @@
 const express = require ("express");
 const router = express.Router();
 
-router.get("/",function(req,res,next){
-   res.status(200).json({
-    sucess:true,message: "This is test route"
-   });
-});
+// const user = require("../models/userModel");
+const {home, createuser} =
 
-router.post("/create",function(req,res,next){
+require("../controllers/userControllers");
 
-    res.status(201).json({
-        sucess:true,user:req.body });
-});
+router.get("/", home);
+
+router.post("/create", createuser );
 
 
 
