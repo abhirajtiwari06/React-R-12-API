@@ -10,6 +10,10 @@ require("./models/dbconfig").dbconnection();
 const userRouter = require("./routes/userRoute");
 
 
+
+
+
+
 //logger
 const logger = require("morgan");
 app.use(logger("tiny"));
@@ -20,6 +24,16 @@ app.use(express.urlencoded({ extended: true}));
 
 
 app.use("/api/user", userRouter);
+
+
+
+
+app.all("*", (req,res,next) => {
+   res.status(404).json({
+    sucess: false,
+    message: `${req.url} route not found`,
+   });
+});
 
 
 
