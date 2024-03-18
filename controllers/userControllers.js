@@ -7,6 +7,8 @@
     });
  };
 
+//  console.log("hello");
+  
 
  exports.createuser = async function(req,res,next){
 
